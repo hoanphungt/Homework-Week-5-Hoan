@@ -1,9 +1,14 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+const usersRouter = require('./users/routes')
+const tokensRouter = require('./auth/route')
+
 const app = express()
+const port = process.env.PORT || 4000
 
-app.get('/', function (req, res, next) {
-    res.json({ message: 'Read all playlists' })
-})
+app
+    .use(bodyParser.json())
+    .use(usersRouter)
+    .use(tokensRouter)
+    .listen(port, () => `Listening on port ${port}`)
 
-const port = 4000
-app.listen(port, () => `Listening on port ${port}`)

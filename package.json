@@ -5,8 +5,14 @@
   "author": "Hoan Phung <hoanphung.ptso1@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "pg": "6",
     "sequelize": "^4.41.2"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
