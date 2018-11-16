@@ -1,0 +1,12 @@
+{
+  "name": "songPlaylist-Hoan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Hoan Phung <hoanphung.ptso1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "6",
+    "sequelize": "^4.41.2"
+  }
+}
