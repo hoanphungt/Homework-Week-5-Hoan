@@ -30,6 +30,9 @@ router.get('/playlists', (req, res, next) => {
 router.get('/playlists/:id', (req, res, next) => {
     Playlist
         .findById(req.params.id, { include: [Song] })
+        console.log(req.params)
+        console.log(req.query)
+
         .then(playlist => {
             if (!playlist) {
                 return res.status(404).send({
