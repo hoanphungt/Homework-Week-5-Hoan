@@ -10,6 +10,11 @@ const User = sequelize.define('users', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    passwordConfirmation: {
+        type: Sequelize.STRING,
+        field: 'password_confirmation',
+        allowNull: false
+    }
 }, {
         timestamps: false,
         tableName: 'users'

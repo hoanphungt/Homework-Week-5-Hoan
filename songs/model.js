@@ -7,20 +7,20 @@ const Song = sequelize.define('songs', {
         field: 'title',
         allowNull: false
     },
-    artistName: {
+    artist: {
         type: Sequelize.STRING,
         field: 'artist_name',
         allowNull: false
     },
-    albumTitle: {
+    album: {
         type: Sequelize.STRING,
         field: 'album_title'
     },
-    // playlistId: {
-    //     type: Sequelize.INTEGER,
-    //     field: 'playlistId',
-    //     allowNull: false
-    // }
+    playlistId: {
+        type: Sequelize.INTEGER,
+        field: 'playlist_id',
+        allowNull: false
+    }
 }, {
     timestamps: false,
     tableName: 'songs'

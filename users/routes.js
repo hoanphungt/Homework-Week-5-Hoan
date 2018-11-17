@@ -7,10 +7,17 @@ const router = new Router()
 router.post('/users', (req, res, next) => {
     const user = {
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10)
+        password: bcrypt.hashSync(req.body.password, 10),
+        passwordConfirmation: bcrypt.hashSync(req.body.password, 10)
     }
 
     User
+    if (req.body.password !== req.body.passwordConfirmation) {
+        return res.status(400).send({
+            message: 'Password does not match'
+        })
+    } else {
+        User
         .create(user)
         .then(user => {
             if (!user) {
@@ -19,8 +26,9 @@ router.post('/users', (req, res, next) => {
                 })
             }
             return res.status(201).send(user)
-        })
+        })    
         .catch(error => next(error))
+    }
 })
 
 module.exports = router

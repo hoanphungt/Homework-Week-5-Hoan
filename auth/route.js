@@ -3,7 +3,6 @@ const { toJWT } = require('./jwt')
 const { toData } = require('./jwt')
 const bcrypt = require('bcrypt')
 const User = require('../users/model')
-// const auth = require('./middleware')
 
 const router = new Router()
 
@@ -28,7 +27,6 @@ router.post('/tokens', (req, res, next) => {
                         message: 'Invalid email address'
                     })
                 }
-
                 if (bcrypt.compareSync(req.body.password, user.password)) {
                     res.send({
                         message: 'Here is your jwt token',
@@ -67,11 +65,5 @@ router.get('/secret-endpoint', (req, res) => {
         })
     }
 })
-
-// router.get('/secret-endpoint', auth, (req, res) => {
-//     res.send({
-//         message: `You are authorized to visit this authenticated section of ${req.user.email}!`
-//     })
-// })
 
 module.exports = router
